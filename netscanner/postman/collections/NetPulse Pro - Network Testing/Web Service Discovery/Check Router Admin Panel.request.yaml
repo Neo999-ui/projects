@@ -1,0 +1,22 @@
+$kind: http-request
+method: GET
+url: 'http://{{gateway}}'
+order: 4000
+settings:
+  strictSSL: false
+  followRedirects: true
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Test: Router responds
+      pm.test("Router admin panel is reachable", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 301, 302, 401, 403]);
+      });
+
+      // Check for common router login pages
+      const body = pm.response.text().toLowerCase();
+      const isLoginPage = body.includes("login") || body.includes("password") || body.includes("username");
+      pm.test("Page appears to be a login/admin page", function () {
+          pm.expect(isLoginPage).to.be.true;
+      });

@@ -1,0 +1,27 @@
+$kind: http-request
+method: GET
+url: 'http://localhost:5000/api/scans/latest'
+order: 2000
+headers:
+  - key: Accept
+    value: application/json
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Latest scan has hosts array", function () {
+          const body = pm.response.json();
+          pm.expect(body).to.have.property('hosts');
+          pm.expect(body.hosts).to.be.an('array');
+      });
+
+      // Save count of discovered hosts to environment
+      const body = pm.response.json();
+      if (body && body.hosts) {
+          pm.environment.set("lastScanHostCount", body.hosts.length);
+          console.log("Last scan found", body.hosts.length, "hosts.");
+      }

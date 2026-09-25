@@ -1,0 +1,26 @@
+$kind: http-request
+method: GET
+url: 'http://localhost:5000/api/scans'
+order: 1000
+headers:
+  - key: Accept
+    value: application/json
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Test: Successful response
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      // Test: Response is JSON
+      pm.test("Response is JSON", function () {
+          pm.response.to.be.json;
+      });
+
+      // Test: Response has scan data
+      pm.test("Response contains scan array", function () {
+          const body = pm.response.json();
+          pm.expect(body).to.be.an('array');
+      });

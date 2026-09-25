@@ -1,0 +1,186 @@
+[
+  {
+    "timestamp": "2026-09-25 21:57:59",
+    "scan_range": "192.168.0.119",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:57:25",
+    "scan_range": "192.168.0.116",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.0.116",
+        "hostname": "Host-116",
+        "mac": "76:18:7D:30:AF:84",
+        "vendor": "Unknown / Generic Vendor",
+        "device_type": "Workstation / PC",
+        "latency_ms": 2.0,
+        "status": "Online",
+        "open_ports": [],
+        "risk_score": "Safe",
+        "risk_details": [
+          "No high-risk exposed services detected."
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-25 21:57:12",
+    "scan_range": "192.168.0.116",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.0.116",
+        "hostname": "Host-116",
+        "mac": "76:18:7D:30:AF:84",
+        "vendor": "Unknown / Generic Vendor",
+        "device_type": "Workstation / PC",
+        "latency_ms": 4.0,
+        "status": "Online",
+        "open_ports": [],
+        "risk_score": "Safe",
+        "risk_details": [
+          "No high-risk exposed services detected."
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-25 21:56:46",
+    "scan_range": "100.168.0.116",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:56:37",
+    "scan_range": "100.168.0.116",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:54:40",
+    "scan_range": "100.168.0.119",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:54:16",
+    "scan_range": "100.168.0.119",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:53:46",
+    "scan_range": "100.123.222.149",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-25 21:52:27",
+    "scan_range": "100.123.222.149",
+    "total_hosts": 0,
+    "hosts": []
+  },
+  {
+    "timestamp": "2026-09-23 16:13:45",
+    "scan_range": "192.168.1.11",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.1.11",
+        "hostname": "Host-11",
+        "mac": "8E:D1:8C:69:71:2F",
+        "vendor": "Unknown / Generic Vendor",
+        "device_type": "Workstation / PC",
+        "latency_ms": 18.0,
+        "status": "Online",
+        "open_ports": [],
+        "risk_score": "Safe",
+        "risk_details": [
+          "No high-risk exposed services detected."
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-23 16:13:14",
+    "scan_range": "192.168.1.11",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.1.11",
+        "hostname": "Host-11",
+        "mac": "8E:D1:8C:69:71:2F",
+        "vendor": "Unknown / Generic Vendor",
+        "device_type": "Workstation / PC",
+        "latency_ms": 88.0,
+        "status": "Online",
+        "open_ports": [],
+        "risk_score": "Safe",
+        "risk_details": [
+          "No high-risk exposed services detected."
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-23 16:12:43",
+    "scan_range": "192.168.1.11",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.1.11",
+        "hostname": "Host-11",
+        "mac": "8E:D1:8C:69:71:2F",
+        "vendor": "Unknown / Generic Vendor",
+        "device_type": "Workstation / PC",
+        "latency_ms": 118.0,
+        "status": "Online",
+        "open_ports": [],
+        "risk_score": "Safe",
+        "risk_details": [
+          "No high-risk exposed services detected."
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-23 16:11:12",
+    "scan_range": "192.168.1.18",
+    "total_hosts": 1,
+    "hosts": [
+      {
+        "ip": "192.168.1.18",
+        "hostname": "TEDDY",
+        "mac": "Local Interface",
+        "vendor": "Local Device",
+        "device_type": "Workstation / PC",
+        "latency_ms": 0.1,
+        "status": "Online",
+        "open_ports": [
+          {
+            "port": 135,
+            "service": "MSRPC (Microsoft RPC)",
+            "banner": ""
+          },
+          {
+            "port": 139,
+            "service": "NetBIOS Session",
+            "banner": ""
+          },
+          {
+            "port": 445,
+            "service": "SMB (Windows File Sharing)",
+            "banner": ""
+          }
+        ],
+        "risk_score": "Low",
+        "risk_details": [
+          "INFO: Windows SMB File Sharing (Port 445/139) enabled."
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+$kind: http-request
+method: GET
+url: 'http://{{targetHost}}/api'
+order: 2000
+settings:
+  strictSSL: false
+  followRedirects: true
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Check if API is exposed without auth
+      pm.test("API endpoint check completed", function () {
+          pm.expect(pm.response.code).to.be.a('number');
+      });
+
+      if (pm.response.code === 200) {
+          console.warn("⚠️ API endpoint accessible without authentication on", pm.environment.get("targetHost"));
+      } else {
+          console.log("✅ API endpoint returned", pm.response.code, "- likely protected.");
+      }

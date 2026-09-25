@@ -1,0 +1,21 @@
+$kind: http-request
+method: GET
+url: 'http://{{targetHost}}/phpmyadmin'
+order: 3000
+settings:
+  strictSSL: false
+  followRedirects: true
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // phpMyAdmin should not be exposed
+      pm.test("phpMyAdmin is not publicly exposed", function () {
+          pm.expect(pm.response.code).to.not.equal(200);
+      });
+
+      if (pm.response.code === 200) {
+          console.warn("⚠️ RISK: phpMyAdmin appears to be exposed on", pm.environment.get("targetHost"));
+      } else {
+          console.log("✅ phpMyAdmin not found (returned", pm.response.code + ")");
+      }

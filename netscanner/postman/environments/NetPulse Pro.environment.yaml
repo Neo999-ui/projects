@@ -1,0 +1,32 @@
+name: NetPulse Pro - Local Network
+values:
+  - key: targetHost
+    value: '192.168.1.1'
+    enabled: true
+    type: default
+    description: IP of the target device to test
+  - key: gateway
+    value: '192.168.1.1'
+    enabled: true
+    type: default
+    description: Default gateway / router IP
+  - key: subnet
+    value: '192.168.1.0/24'
+    enabled: true
+    type: default
+    description: Network subnet to scan
+  - key: httpPort
+    value: '80'
+    enabled: true
+    type: default
+    description: HTTP port
+  - key: httpsPort
+    value: '443'
+    enabled: true
+    type: default
+    description: HTTPS port
+  - key: altPort
+    value: '8080'
+    enabled: true
+    type: default
+    description: Alternate web port

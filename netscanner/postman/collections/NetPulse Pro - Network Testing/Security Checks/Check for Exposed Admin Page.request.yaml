@@ -1,0 +1,23 @@
+$kind: http-request
+method: GET
+url: 'http://{{targetHost}}/admin'
+order: 1000
+settings:
+  strictSSL: false
+  followRedirects: false
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Security test: Admin page should NOT be publicly accessible
+      pm.test("Admin page is protected (not 200 OK)", function () {
+          pm.expect(pm.response.code).to.not.equal(200);
+      });
+
+      pm.test("Admin page returns 401 or 403 (properly protected)", function () {
+          pm.expect(pm.response.code).to.be.oneOf([401, 403, 404]);
+      });
+
+      if (pm.response.code === 200) {
+          console.warn("⚠️ WARNING: Admin page is publicly accessible on", pm.environment.get("targetHost"));
+      }

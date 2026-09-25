@@ -1,0 +1,16 @@
+$kind: http-request
+method: GET
+url: 'http://{{targetHost}}:8080'
+order: 3000
+settings:
+  strictSSL: false
+  followRedirects: true
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Test: Check for alternate web panel
+      pm.test("Alternate port 8080 responded", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 201, 301, 302, 304, 401, 403]);
+      });
+      console.log("Alt port 8080 status:", pm.response.code);

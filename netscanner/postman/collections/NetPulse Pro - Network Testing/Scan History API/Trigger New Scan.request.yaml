@@ -1,0 +1,31 @@
+$kind: http-request
+method: POST
+url: 'http://localhost:5000/api/scans'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "target": "{{subnet}}",
+      "scanType": "standard",
+      "exportHtml": false
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Scan triggered successfully (201)", function () {
+          pm.response.to.have.status(201);
+      });
+
+      pm.test("Response has scan ID", function () {
+          const body = pm.response.json();
+          pm.expect(body).to.have.property('scanId');
+          pm.environment.set("lastScanId", body.scanId);
+          console.log("New scan started with ID:", body.scanId);
+      });

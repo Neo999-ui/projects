@@ -1,0 +1,27 @@
+$kind: http-request
+method: GET
+url: 'http://{{targetHost}}'
+order: 1000
+settings:
+  strictSSL: false
+  followRedirects: true
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      // Test 1: Check if the service responded
+      pm.test("Service is reachable (2xx or 3xx)", function () {
+          pm.expect(pm.response.code).to.be.oneOf([200, 201, 301, 302, 304]);
+      });
+
+      // Test 2: Response time under 5 seconds
+      pm.test("Response time is under 5000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(5000);
+      });
+
+      // Test 3: Log the server header for fingerprinting
+      const server = pm.response.headers.get("Server");
+      if (server) {
+          console.log("Server header:", server);
+          pm.environment.set("detectedServer", server);
+      }
