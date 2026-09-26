@@ -1,0 +1,24 @@
+{
+  "name": "login-brute-force-detector",
+  "version": "1.0.0",
+  "description": "Real-time login brute-force attack detector with cyber security dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-detector.js"
+  },
+  "keywords": [
+    "security",
+    "brute-force",
+    "detector",
+    "rate-limit",
+    "cyber-dashboard"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ws": "^8.17.0"
+  }
+}
